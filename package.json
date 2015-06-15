@@ -1,0 +1,28 @@
+{
+  "name": "livepatch",
+  "version": "1.0.0",
+  "description": "Patch JSON streams on the fly",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "script/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pagarme/livepatch.git"
+  },
+  "keywords": [
+    "json",
+    "stream",
+    "patch"
+  ],
+  "author": "Jonathan Lima <greenboxal@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pagarme/livepatch/issues"
+  },
+  "homepage": "https://github.com/pagarme/livepatch",
+  "dependencies": {
+    "clarinet": "^0.11.0",
+    "through2": "^2.0.0"
+  }
+}
