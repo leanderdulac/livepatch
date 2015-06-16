@@ -45,13 +45,17 @@ Rewrite all fields matched by `path` using `rewriteFn`.
 The passed function receives an argument with the following information:
 
 **key:** current key name
+
 **path:** current path(as an array)
+
 **value:** current key value(if available)
 
 It should return a JSON object with atleast one of the following actions:
 
 **rename:** Renames the fields with the given value
+
 **remove:** If `true`, removes the key
+
 **value:** Changes the key value
 
 ## path
