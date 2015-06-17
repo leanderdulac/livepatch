@@ -1,5 +1,87 @@
 
 describe('Rewrite', function() {
+	describe('when using deep paths', function() {
+		var output = null;
+		var object = {
+			safe: true,
+			arr: [{
+				metadata_123: 'wtf',
+				safe: true,
+				deep: {
+					so: {
+						deep: {
+							that: {
+								i: {
+									can: [{
+										see: {
+											adele: {
+												rolling: {
+													in: {
+														it: {
+															metadata_test: 123
+														}
+													}
+												}
+											}
+										}
+									}]
+								}
+							}
+						}
+					}
+				}
+			}, {
+				metadata_456: 'bbq',
+				safe: true
+			}]
+		};
+
+		before(function(done) {
+			patchJson(object, function() {
+				this.rename('$..metadata_*', 'metadata');
+			}, function(err, data) {
+				output = data;
+				done(err);
+			});
+		});
+
+		it('should change the correct values', function() {
+			expect(output).to.eql({
+				safe: true,
+				arr: [{
+					metadata: 'wtf',
+					safe: true,
+					deep: {
+						so: {
+							deep: {
+								that: {
+									i: {
+										can: [{
+											see: {
+												adele: {
+													rolling: {
+														in: {
+															it: {
+																metadata: 123
+															}
+														}
+													}
+												}
+											}
+										}]
+									}
+								}
+							}
+						}
+					}
+				}, {
+					metadata: 'bbq',
+					safe: true
+				}]
+			});
+		});
+	});
+
 	describe('when renaming partially', function() {
 		var output = null;
 		var object = {
