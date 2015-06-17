@@ -7,6 +7,7 @@ describe('Stream', function() {
 			a: 1,
 			b: '2',
 			c: true,
+			lol: {},
 			d: {
 				x: [{
 					alpha: true
